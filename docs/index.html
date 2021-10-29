@@ -10,8 +10,38 @@
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json" />
+    <script>
+        document.addEventListener("DOMContentLoaded", function (e) {
+            setInterval(function () {
+                mainclock();
+            }, 1000)
+        });
+
+        function mainclock() {
+            let date = new Date();
+            let time = date.toLocaleTimeString();
+            let today = date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+
+            document.getElementById('today').innerText = today;
+            document.getElementById('clock').innerText = time;
+            
+        }
+    </script>
+    <style>
+        .mainclock {
+            font-size: xxx-large;
+            font-family: fantasy;
+            text-align: center;
+            margin: auto;
+            width: 50%;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-    <p>teste</p>
+    <div class="mainclock">
+        <p id="today"></p>
+        <p id="clock"></p>
+    </div>
 </body>
 </html>
